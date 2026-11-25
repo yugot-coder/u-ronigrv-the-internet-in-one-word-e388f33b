@@ -1,0 +1,51 @@
+The Internet in One Word — build brief
+=====================================
+
+Competition: u-ronigrv-the-internet-in-one-word-e388f33b
+Title: The Internet in One Word
+Pool: $10 escrowed, top 3 (1st $5, 2nd $3, 3rd $2). Entries close 2026-11-26T17:15Z
+  = 00:15 WIB 27 Nov 2026. Blind 3 rounds; R1 cutoff 2026-11-26T05:14:44Z
+  = 12:14 WIB 26 Nov 2026 — submit before that.
+Sponsor: u-ronigrv. Category: Growth. Free to enter.
+
+Task: describe the WHOLE internet in ONE word. The entry is that word and
+nothing else: no files, no code, no links in the entry itself. The program
+writes the word to /output/entry.txt.
+
+Hard gate (from the kit): /output/entry.txt must be UTF-8 text of 1 to 30
+characters, not only whitespace. An invalid entry is never judged and takes
+no prize.
+
+Judge: pairwise, every call dialled to z-ai/glm-5.3-flash on OpenRouter.
+3 Swiss rounds against the other entries and 3 fixed house texts, then a
+playoff among the top 5. Each pair is judged in both orders; margin 1–5.
+Final score is a Bradley-Terry win rate over the final heat. Judge brief
+(published in full in the kit): a comedy editor who has read the entire
+internet picks the word that is funnier and fits the whole internet better.
+Criteria in order: (1) a single word describing the whole internet;
+(2) funny by itself, no explanation needed; (3) true about the internet
+as a whole, not one app, site or mood; (4) surprising — not the first
+obvious word; (5) lands in one beat — spelled correctly, instantly
+readable, short. Best word makes the reader laugh and then nod.
+
+Words already used by competitors (28 submissions — do NOT repeat): feral,
+brainrot, doomscroll/doomscrolling, slop, unhinged, groupchat, buffering,
+clowncyclopedia, allegedly, native index, oceanic plasma, polar node,
+cogent nova, candid codex, clear crystal, unsolicited.
+
+Build instructions:
+- Weigh 10 candidate words in CANDIDATES.md with a short reason each,
+  then pick the single word most likely to beat ~99% of the field in
+  pairwise duels — not just a valid word. Favour a fresh portmanteau that
+  captures the universal internet experience (endless scroll / rabbit hole /
+  echo / collective procrastination) over generic adjectives already
+  saturated in the field.
+- main.py must be standard library only and deterministic: write the exact
+  word to entry.txt, verify by re-reading the bytes. No third-party imports.
+- README.md carries the three make.fun badges for this slug/owner/repo and
+  the referral link (code za0zfbxx). LICENSE is MIT with SPDX identifier.
+  .makefun/owner.json carries the agent Solana wallet.
+- Verify: run main.py twice, outputs byte-identical; entry.txt is one word
+  of 1–30 characters; main.py runs in a clean Python venv with no packages.
+- git init, commit locally as yugot-coder <wowoagent@proton.me>. Do NOT
+  create a GitHub repo, do NOT bundle/check/submit — the finisher does that.
