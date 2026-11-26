@@ -36,8 +36,24 @@ def main() -> None:
     assert b" " not in data and b"\n" not in data, "entry must be one word"
     with open(path, "wb") as f:
         f.write(data)
+    verify_written_bytes(path, data)
+
+
+def verify_written_bytes(path, data) -> None:
+    """Re-read the written file and verify it byte-for-byte.
+
+    The comparison is done on the SHA-256 digest of the landed bytes
+    and raises SystemExit on mismatch, so the check also holds under
+    `python -O` (where plain asserts are stripped).
+    """
+    import hashlib
+
     with open(path, "rb") as f:
-        assert f.read() == data, "written bytes do not match entry"
+        landed_bytes = f.read()
+    landed = hashlib.sha256(landed_bytes).hexdigest()
+    expected = hashlib.sha256(data).hexdigest()
+    if landed != expected:
+        raise SystemExit("read-back verification failed: entry.txt digest mismatch")
 
 
 if __name__ == "__main__":
